@@ -4,8 +4,7 @@ tm.define("lm",{
 init : function(){
 
 this.hold = new Array();
-
-console.log(this.hold);
+var starttime;
 
 },
 
@@ -27,13 +26,43 @@ getmouseXY : function(){
 
 },
 
+starttimer : function(){
+
+ starttime = new Date();
+},
+
+gettime : function(){
+
+  //timer?
+   var currentTime = new Date();
+   //console.log((currentTime - starttime) / 1000 + "秒");
+},
+
+
 play: function(){
 
-    console.log(this.hold)
+    console.log(this.hold);
 },
 
 
-update: function(){
+saveScreen : function(){
+
+    //html2canvas -> toDataURL
+//  html2canvas(document.body, {
+//    onrendered: function(app) {
+//    document.body.appendChild(app);
+//  }
+//});
+//
+  alert("aa");
+
 },
+
+holdFunction : function(define){
+
+  this.hold.push(define);
+},
+
+update: function(){},
 
 })
