@@ -1,15 +1,20 @@
 tm.define("lm",{
 //最初に読み込む　今のところ実質テスト場
 
+//script
+
 init : function(){
 
 this.hold = new Array();
-var starttime;
+this.starttime = this.Starttimer();
 
+//console.log(document.getElementById("app"));
+
+alert("work");
 },
 
 //getmouseXYfromWindowSize : function(){
-//	window.onmousemove = handleMouseMove;
+//  window.onmousemove = handleMouseMove;
 //    function handleMouseMove(event) {
 //        event = event || window.event;
 //        console.log(event.clientX + ", " + event.clientY);
@@ -17,52 +22,56 @@ var starttime;
 //},
 
 getmouseXY : function(){
-	var p = app.pointing;
+  var p = app.pointing;
 
-	var x = p.x;
-    var y = p.y;
+  var x = p.x;
+  var y = p.y;
 
-    this.hold.push(x+","+y);
-
+    console.log(x+","+y);
 },
 
-starttimer : function(){
+Starttimer : function(){
 
- starttime = new Date();
+  return new Date();
 },
 
-gettime : function(){
+gettime : function(starttime){
 
   //timer?
    var currentTime = new Date();
-   //console.log((currentTime - starttime) / 1000 + "秒");
+   console.log((currentTime - this.starttime) / 1000 + "秒");
 },
 
 
 play: function(){
-
     console.log(this.hold);
 },
 
 
 saveScreen : function(){
 
-    //html2canvas -> toDataURL
-//  html2canvas(document.body, {
-//    onrendered: function(app) {
-//    document.body.appendChild(app);
-//  }
-//});
-//
-  alert("aa");
+//html2canvas -> toDataURL
+
+  //document.body
+  html2canvas(document.body, {
+    onrendered: function(canvas) {
+    document.body.appendChild(canvas);
+  }
+});
+
+//data取得
+//  var canvas = document.getElementById("app");
+//  canvas.toDataURL();//CORS
 
 },
 
-holdFunction : function(define){
+toOutput : function(){},
 
+//muphicバージョン
+holdFunction : function(define){
   this.hold.push(define);
 },
 
-update: function(){},
 
+update: function(){},
 })
