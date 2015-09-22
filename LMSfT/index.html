@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<!--jQuery-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="script/jquery.xdomainajax.js"></script>
+
+
+<script type="text/javascript" src="script/lm.js"></script>
+
+</head>
+
+<body>
+<div id="header" class="item"></div>
+
+<div id="middle" class="item">
+
+<div id="left_frame" class="item">
+
+	<iframe src = "../../MelOn/index.html" id="contents" name = "target" seemless width = 100% height=100%></iframe>
+
+	<script>
+		$(function(){
+			//$('#contents').loadCanvasElement();
+			$('#contents').mouseEvent();
+		});
+	</script>
+
+	</div>
+	<div id="right_frame" class="item">
+		<textarea placeholder="テストコードの入力"></textarea>
+	</div>
+</div>
+<div id="footer" class="item">フッター（結果出力予定）
+
+</div>
+
+</body>
+</html>
