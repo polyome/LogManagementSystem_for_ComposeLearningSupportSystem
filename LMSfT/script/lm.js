@@ -1,32 +1,44 @@
-//最初に読み込む　実質テスト場
-function init(){
-
-}
-
-
-//
 ;$(function($){
-	var canvas;	
-		$.fn.loadCanvasElement = function(){
+
+		$.fn.runTest = function(){
+
 			$(this).on('load',function(){
-				canvas = $(this).contents().find('canvas');
-				//console.log(canvas);
+				var canvas = $(this).loadCanvasElement();
+
+				$(canvas).selfHtml();
+				//$(canvas).mouseEvent(canvas);
 		});
 	}
-//setTimeout(function(){console.log(canvas);},8000);
-});
+		$.fn.selfHtml = function(){
 
-;$(function($){
+			//outer = $(this).outerHeight();
+			outer = $(this).get(0).outerHTML;
+			console.log(outer);
 
-	$.fn.mouseEvent = function(e){
-			//効かない
-			$('#contents').mousedown(function(e){
+		}
+
+		$.fn.loadCanvasElement = function(){
+				var canvas = $(this).contents().find('canvas');
+				console.log(canvas);
+
+				//現在のサイズ
+				console.log('width:'+canvas.width()+',height:'+canvas.height());
+				
+				console.log();
+
+
+				return canvas;
+	}
+
+		$.fn.mouseEvent = function(canvas){
+			$(this).mousedown(function(canvas){
 				var types = ['','左','中央','右'];
-				console.log(types[e.which]+'ボタン');
-			});
-			//効く
-			$('#contents').mouseover(function(e){
-				console.log(e.clientX+' , '+e.clientY);
-			})
+				console.log(types[canvas.which]+'ボタン');
+		});
+		//補正が必要	X軸方向のみ120-130pxのズレ
+		//			canvasサイズ比を乗除する width = currentWidth * (static TMWidth/static canvasWidth);
+			$(this).mousemove(function(canvas){
+				console.log('width:'+(canvas.clientX-125) +',height:'+canvas.clientY);
+		});
 	}
 });

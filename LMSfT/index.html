@@ -16,29 +16,26 @@
 </head>
 
 <body>
-<div id="header" class="item"></div>
-
-<div id="middle" class="item">
+<!-- <div id="header" class="item"></div> -->
+<!--  -->
+<!-- <div id="middle" class="item"> -->
+<!--  -->
+<!-- <div id="footer" class="item">フッター（結果出力予定）</div> -->
 
 <div id="left_frame" class="item">
 
-	<iframe src = "../../MelOn/index.html" id="contents" name = "target" seemless width = 100% height=100%></iframe>
 
-	<script>
-		$(function(){
-			//$('#contents').loadCanvasElement();
-			$('#contents').mouseEvent();
-		});
-	</script>
+	<!-- 外部よりロード：失敗 内部から読み込み-->
+	<iframe src = "MelOn/index.html" id="contents" name = "target" seemless width = 100% height=100%></iframe>
+
+	<script>$(function(){$('#contents').runTest();});</script>
 
 	</div>
 	<div id="right_frame" class="item">
 		<textarea placeholder="テストコードの入力"></textarea>
 	</div>
 </div>
-<div id="footer" class="item">フッター（結果出力予定）
 
-</div>
 
 </body>
 </html>
